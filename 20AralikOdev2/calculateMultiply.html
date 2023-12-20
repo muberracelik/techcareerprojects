@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <label>Bu işlem gireceğiniz sayının 1.8 ile çarpımını verir</label>
+        <br>
+        <br>
+        <input type="text" id="input" placeholder="Lütfen bir sayı giriniz">
+        <br>
+        <br>
+        <button onclick="calculate()">Hesapla</button>
+    </ul>
+    <script>
+        function calculate() {
+            // Input alanındaki değeri al
+            var inputValue = document.getElementById('input').value;
+
+            // Girilen değeri sayıya çevir
+            var numericValue = parseFloat(inputValue);
+
+            // Eğer girdi bir sayı ise
+            if (!isNaN(numericValue)) {
+                // 1.8 ile çarp ve sonucu alert ile göster
+                var result = numericValue * 1.8;
+                result = result.toFixed(1);
+                alert("Sonuç: " + result);
+            } else {
+                // Eğer girdi bir sayı değilse
+                alert("Bu değer geçersiz. Lütfen bir sayı giriniz!");
+            }
+        }
+    </script>
+</body>
+</html>

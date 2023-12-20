@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <ul>
+    <input type="text" id="number1" placeholder="Sayı 1">
+    <input type="text" id="number2" placeholder="Sayı 2">
+    <br>
+    <br>
+    <button onclick="mathCalculate('multiply')">Çarpma</button>
+    <button onclick="mathCalculate('add')">Toplama</button>
+    <br>
+    <br>
+    <button onclick="mathCalculate('divide')">Bölme</button>
+    <button onclick="mathCalculate('subtract')">Çıkarma</button>
+    <p id="result">Sonuç: </p>  
+</ul>
+  
+
+  <script>
+    function mathCalculate(operation) {
+      // Değerleri inputlardan al
+      var value1 = parseFloat(document.getElementById('number1').value);
+      var value2 = parseFloat(document.getElementById('number2').value);
+
+      // İşlemi gerçekleştir
+      var result;
+      if (!isNaN(value1)&& !isNaN(value2)) {
+        switch (operation) {
+        case 'add':
+          result = value1 + value2;
+          break;
+        case 'subtract':
+          result = value1 - value2;
+          break;
+        case 'multiply':
+          result = value1 * value2;
+          break;
+        case 'divide':
+          if (value2 !== 0) {
+            result = value1 / value2;
+          } else {
+            alert("0'a bölüm yapılamaz!");
+            return;
+          }
+          break;
+        default:
+          alert("Geçersiz işlem!");
+          return;
+      }
+      // Sonucu ekranda göster (virgülden sonra en fazla 5 basamak)
+      result = result.toFixed(5);
+      document.getElementById('result').innerText = 'Sonuç: ' + result;
+      }
+      
+      else{
+        alert("Bu değer geçersiz. Lütfen bir sayı giriniz.");
+      }
+
+      
+    }
+  </script>
+</body>
+</html>
